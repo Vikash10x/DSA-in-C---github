@@ -2,6 +2,22 @@
 #include <vector>
 using namespace std;
 
+void solve(int arr[])
+{
+    cout << "Size inside main function: " << sizeof(arr) << endl;
+
+    cout << "arr: " << arr << endl;
+    cout << "&arr: " << &arr << endl;
+
+    arr[0] = 50;
+}
+
+void update(int *p)
+{
+    cout << "Address stored insde p is: " << p << endl;
+    cout << "Address of p is: " << &p << endl;
+    *p = *p + 10;
+}
 int main()
 {
     // int a = 5;
@@ -97,9 +113,50 @@ int main()
     // cout << *c << endl;
     // cout << c + 8 << endl;
 
-    char ch = 'k';
-    char *c = &ch;
-    cout << c << endl;
+    // char ch = 'v';
+    // char *c = &ch;
+    // cout << c << endl;
 
+    // int arr[10] = {2, 4, 6, 8};
+
+    // cout << "Size inside main function: " << sizeof(arr) << endl;
+    // cout << arr << endl;
+    // cout << &arr << endl;
+
+    // // printing inside main
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
+    // cout << endl;
+
+    // cout << "now calling solve function " << endl
+    //      << endl
+    //      << endl
+    //      << endl;
+
+    // solve(arr);
+
+    // cout << "vapas main function ma aagaye hai" << endl;
+
+    // for (int i = 0; i < 10; i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
+
+    // int a = 5;
+    // int b = 9;
+
+    // cout << &a << endl;
+    // cout << &b << endl;
+
+    int a = 5;
+    cout << "Address of a is: " << &a << endl;
+    int *ptr = &a;
+    cout << "Address stored in ptr is: " << ptr << endl;
+    cout << "Address of ptr is: " << &ptr << endl;
+
+    update(ptr);
+    cout << "value of a is: " << a << endl;
     return 0;
 }
