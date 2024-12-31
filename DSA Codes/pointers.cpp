@@ -144,12 +144,6 @@ int main()
     //     cout << arr[i] << " ";
     // }
 
-    // int a = 5;
-    // int b = 9;
-
-    // cout << &a << endl;
-    // cout << &b << endl;
-
     int a = 5;
     cout << "Address of a is: " << &a << endl;
     int *ptr = &a;
