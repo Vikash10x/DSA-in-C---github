@@ -24,10 +24,10 @@ int main()
     // cout << *ptr << endl;
     // cout << *dusraptr;
 
-    int a = 10;
-    int *p = &a;
-    int *q = p;
-    int *r = q;
+    // int a = 10;
+    // int *p = &a;
+    // int *q = p;
+    // int *r = q;
 
     // cout << a << endl;                   // 10
     // cout << &a << endl;                  // address of a
@@ -46,7 +46,7 @@ int main()
 
     // Array --------------
 
-    int arr[10] = {12, 32, 53, 9};
+    // int arr[10] = {12, 32, 53, 9};
 
     // cout << arr << endl;
     // cout << arr[0] << endl;
@@ -57,16 +57,49 @@ int main()
     // cout << p << endl;
     // cout << &p << endl;
 
-    cout << *arr << endl;
-    cout << arr[0] << endl;
-    cout << *arr + 1 << endl;
-    cout << *(arr) + 1 << endl;
-    cout << *(arr + 1) << endl;
-    cout << arr[1] << endl;
-    cout << *(arr + 2) << endl;
-    cout << arr[2] << endl;
-    cout << *(arr + 3) << endl;
-    cout << arr[3] << endl;
+    // cout << *arr << endl;
+    // cout << arr[0] << endl;
+    // cout << *arr + 1 << endl;
+    // cout << *(arr) + 1 << endl;
+    // cout << *(arr + 1) << endl;
+    // cout << arr[1] << endl;
+    // cout << *(arr + 2) << endl;
+    // cout << arr[2] << endl;
+    // cout << *(arr + 3) << endl;
+    // cout << arr[3] << endl;
+
+    // Class 2 --------------
+
+    // int arr[5] = {2, 6, 4, 8, 9};
+    // int *p = arr + 1;
+    // cout << p << endl;
+
+    // char ch[10] = "Vikash";
+    // char *c = ch;
+    // cout << ch << endl;
+    // cout << ch[0] << endl;
+    // cout << &ch << endl;
+
+    // cout << c << endl;
+    // cout << *c << endl;
+    // cout << &c << endl;
+
+    // char name[9] = "Sherbano";
+    // char *c = &name[0];
+
+    // cout << name << endl;
+    // cout << &name << endl;
+    // cout << *(name + 3) << endl;
+    // cout << c << endl;
+    // cout << &c << endl;
+    // cout << *(c + 3) << endl;
+    // cout << c + 2 << endl;
+    // cout << *c << endl;
+    // cout << c + 8 << endl;
+
+    char ch = 'k';
+    char *c = &ch;
+    cout << c << endl;
 
     return 0;
 }
