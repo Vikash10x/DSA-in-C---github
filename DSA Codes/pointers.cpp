@@ -40,9 +40,17 @@ void util(int *ptr)
 // {
 //     *p = *p + 1;
 // }
-void solve(int *&p)
+// void solve(int *&p)
+// {
+//     p = p + 1;
+// }
+
+int *solve(int *&p)
 {
-    p = p + 1;
+    int a = 5;
+    int *ans = &a;
+
+    return ans;
 }
 int main()
 {
@@ -251,12 +259,20 @@ int main()
 
     // ------------ pass by reference ptr
 
+    // int a = 5;
+    // int *p = &a;
+
+    // cout << "before " << p << endl;
+    // solve(p);
+    // cout << "after " << p << endl;
+
+    // Que
+
     int a = 5;
     int *p = &a;
 
-    cout << "before " << p << endl;
     solve(p);
-    cout << "after " << p << endl;
+    cout << p << endl;
 
     return 0;
 }
