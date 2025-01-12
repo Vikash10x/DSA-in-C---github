@@ -2,15 +2,15 @@
 #include <vector>
 using namespace std;
 
-void solve(int arr[])
-{
-    cout << "Size inside main function: " << sizeof(arr) << endl;
+// void solve(int arr[])
+// {
+//     cout << "Size inside main function: " << sizeof(arr) << endl;
 
-    cout << "arr: " << arr << endl;
-    cout << "&arr: " << &arr << endl;
+//     cout << "arr: " << arr << endl;
+//     cout << "&arr: " << &arr << endl;
 
-    arr[0] = 50;
-}
+//     arr[0] = 50;
+// }
 
 void update(int *p)
 {
@@ -19,9 +19,30 @@ void update(int *p)
     *p = *p + 10;
 }
 
-void util(int *p)
+void util(int *ptr)
 {
-    *p = *p + 1;
+    ptr = ptr + 1;
+}
+
+// void solve(int **ptr)
+// {
+//     // ptr = ptr + 1;
+//     // *ptr = *ptr + 1;
+//     **ptr = **ptr + 1;
+// }
+
+// void solve(int &num)
+// {
+//     num++;
+// }
+
+// void solve(int *p)
+// {
+//     *p = *p + 1;
+// }
+void solve(int *&p)
+{
+    p = p + 1;
 }
 int main()
 {
@@ -174,20 +195,68 @@ int main()
     // cout << *q << endl;
     // cout << **q << endl;
 
+    // int a = 5;
+    // int *p = &a;
+
+    // cout << "before" << endl;
+    // cout << a << endl;
+    // cout << p << endl;
+    // cout << *p << endl;
+
+    // util(p);
+
+    // cout << endl
+    //      << "after" << endl;
+    // cout << a << endl;
+    // cout << p << endl;
+    // cout << *p << endl;
+
+    // int x = 10;
+    // int *p = &x;
+    // int **q = &p;
+
+    // solve(q);
+
+    // cout << x << endl;
+
+    // int a = 5;
+    // int &b = a;
+
+    // cout << b << endl;
+    // cout << a << endl;
+
+    // a++;
+    // cout << a << endl;
+    // cout << b << endl;
+
+    // b++;
+    // cout << a << endl;
+    // cout << b << endl;
+
+    // ------
+
+    // int a = 8;
+    // solve(a);
+
+    // cout << a << endl;
+
+    // ---------------- pass by value ptr
+
+    // int a = 5;
+    // int *p = &a;
+
+    // solve(p);
+
+    // cout << a << endl;
+
+    // ------------ pass by reference ptr
+
     int a = 5;
     int *p = &a;
 
-    cout << "before" << endl;
-    cout << a << endl;
-    cout << p << endl;
-    cout << *p << endl;
+    cout << "before " << p << endl;
+    solve(p);
+    cout << "after " << p << endl;
 
-    util(p);
-
-    cout << endl
-         << "after" << endl;
-    cout << a << endl;
-    cout << p << endl;
-    cout << *p << endl;
     return 0;
 }
