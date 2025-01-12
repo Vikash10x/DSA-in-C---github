@@ -18,6 +18,11 @@ void update(int *p)
     cout << "Address of p is: " << &p << endl;
     *p = *p + 10;
 }
+
+void util(int *p)
+{
+    *p = *p + 1;
+}
 int main()
 {
     // int a = 5;
@@ -169,5 +174,20 @@ int main()
     // cout << *q << endl;
     // cout << **q << endl;
 
-        return 0;
+    int a = 5;
+    int *p = &a;
+
+    cout << "before" << endl;
+    cout << a << endl;
+    cout << p << endl;
+    cout << *p << endl;
+
+    util(p);
+
+    cout << endl
+         << "after" << endl;
+    cout << a << endl;
+    cout << p << endl;
+    cout << *p << endl;
+    return 0;
 }
