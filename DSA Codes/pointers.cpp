@@ -144,13 +144,30 @@ int main()
     //     cout << arr[i] << " ";
     // }
 
-    int a = 5;
-    cout << "Address of a is: " << &a << endl;
-    int *ptr = &a;
-    cout << "Address stored in ptr is: " << ptr << endl;
-    cout << "Address of ptr is: " << &ptr << endl;
+    // int a = 5;
+    // cout << "Address of a is: " << &a << endl;
+    // int *ptr = &a;
+    // cout << "Address stored in ptr is: " << ptr << endl;
+    // cout << "Address of ptr is: " << &ptr << endl;
 
-    update(ptr);
-    cout << "value of a is: " << a << endl;
-    return 0;
+    // update(ptr);
+    // cout << "value of a is: " << a << endl;
+
+    // class 3 --- Double pointer -----------------
+
+    // int a = 5;
+    // int *p = &a;
+    // int **q = &p;
+
+    // cout << a << endl;
+    // cout << &a << endl;
+    // cout << p << endl;
+    // cout << &p << endl;
+    // cout << *p << endl;
+    // cout << q << endl;
+    // cout << &q << endl;
+    // cout << *q << endl;
+    // cout << **q << endl;
+
+        return 0;
 }
