@@ -250,12 +250,12 @@ int main()
 
     // ---------------- pass by value ptr
 
-    // int a = 5;
-    // int *p = &a;
+    int a = 5;
+    int *p = &a;
 
-    // solve(p);
+    solve(p);
 
-    // cout << a << endl;
+    cout << p << endl;
 
     // ------------ pass by reference ptr
 
@@ -268,11 +268,11 @@ int main()
 
     // Que
 
-    int a = 5;
-    int *p = &a;
+    // int a = 5;
+    // int *p = &a;
 
-    solve(p);
-    cout << p << endl;
+    // solve(p);
+    // cout << p << endl;
 
     return 0;
 }
