@@ -59,8 +59,8 @@ void printArray(int arr[], int n, int i)
     {
         return;
     }
-    cout << arr[i] << " ";
     printArray(arr, n, i + 1);
+    cout << arr[i] << " ";
 }
 int main()
 {
