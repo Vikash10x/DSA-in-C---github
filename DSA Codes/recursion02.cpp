@@ -1,5 +1,6 @@
 #include <iostream>
-#include <vector>
+#include <climits>
+// #include <vector>
 using namespace std;
 
 // bool checkSorted(vector<int> &arr, int n, int i)
@@ -53,21 +54,92 @@ using namespace std;
 
 //-------- Print Array --------
 
-void printArray(int arr[], int n, int i)
+// void printArray(int arr[], int n, int i)
+// {
+//     if (i >= n)
+//     {
+//         return;
+//     }
+//     printArray(arr, n, i + 1);
+//     cout << arr[i] << " ";
+// }
+// int main()
+// {
+//     int arr[] = {10, 20, 30, 40, 50};
+//     int n = 5;
+//     int i = 0;
+//     printArray(arr, n, i);
+
+//     return 0;
+// }
+
+// ------ MAximum number ---------
+
+// void findMax(int arr[], int n, int i, int &maxi)
+// {
+//     // base case
+//     if (i >= n)
+//     {
+//         return;
+//     }
+//     if (arr[i] > maxi)
+//     {
+//         maxi = arr[i];
+//     }
+//     findMax(arr, n, i + 1, maxi);
+// }
+
+// void findMin(int arr[], int n, int i, int &mini)
+// {
+//     // base case
+//     if (i >= n)
+//     {
+//         return;
+//     }
+//     if (arr[i] < mini)
+//     {
+//         mini = arr[i];
+//     }
+//     findMin(arr, n, i + 1, mini);
+// }
+// int main()
+// {
+//     int arr[] = {10, 50, 20, 90, 40, 65, 74, 99};
+//     int n = 8;
+//     int i = 0;
+//     int maxi = INT_MIN;
+//     int mini = INT_MAX;
+//     findMax(arr, n, i, maxi);
+//     findMin(arr, n, i, mini);
+//     cout << "Maximum value is: " << maxi << endl;
+//     cout << "Minimum value is: " << mini << endl;
+
+//     return 0;
+// }
+
+// --------CheckDigit -----------
+
+bool findDigit(string str, int n, int i, int key)
 {
     if (i >= n)
     {
-        return;
+        return false;
     }
-    printArray(arr, n, i + 1);
-    cout << arr[i] << " ";
+    if (str[i] == key)
+    {
+        return true;
+    }
+    return findDigit(str, n, i + 1, key);
 }
 int main()
 {
-    int arr[] = {10, 20, 30, 40, 50};
-    int n = 5;
+    string str = "vikashkumawat";
+    int n = str.length();
+
     int i = 0;
-    printArray(arr, n, i);
+    int key = 'k';
+    bool ans = findDigit(str, n, i, key);
+    cout << "Ans is: " << ans << endl;
 
     return 0;
 }
