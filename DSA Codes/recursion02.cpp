@@ -32,25 +32,25 @@ using namespace std;
 //         cout << "Array is not sorted: ";
 //     }
 
-// int checkStair(int n)
-// {
-//     // base case
-//     if (n == 0 || n == 1)
-//     {
-//         return 1;
-//     }
-//     int ans = checkStair(n - 1) + checkStair(n - 2);
-//     return ans;
-// }
-// int main()
-// {
-//     int n;
-//     cout << "Enter the number: ";
-//     cin >> n;
-//     int ans = checkStair(n);
-//     cout << "Answer is: " << ans;
-//     return 0;
-// }
+int checkStair(int n)
+{
+    // base case
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    int ans = checkStair(n - 1) + checkStair(n - 2);
+    return ans;
+}
+int main()
+{
+    int n;
+    cout << "Enter the number: ";
+    cin >> n;
+    int ans = checkStair(n);
+    cout << "Answer is: " << ans;
+    return 0;
+}
 
 //-------- Print Array --------
 
@@ -119,36 +119,60 @@ using namespace std;
 
 // --------CheckDigit -----------
 
-void findDigit(string &str, int &n, int i, int key, vector<int> &ans)
-{
-    if (i >= n)
-    {
-        return;
-    }
-    if (str[i] == key)
-    {
-        // return true;
-        // cout << "found at: " << i << endl;
-        ans.push_back(i);
-        // return i;
-    }
-    findDigit(str, n, i + 1, key, ans);
-}
-int main()
-{
-    string str = "vikashkumawat";
-    int n = str.length();
-    int i = 0;
-    char key = 'a';
-    vector<int> ans;
+// void findDigit(string &str, int &n, int i, int key, vector<int> &ans, int &count)
+// {
+//     if (i >= n)
+//     {
+//         return;
+//     }
+//     if (str[i] == key)
+//     {
+//         // return true;
+//         // cout << "found at: " << i << endl;
+//         ans.push_back(i);
+//         count++;
+//         // return i;
+//     }
+//     findDigit(str, n, i + 1, key, ans, count);
+// }
+// int main()
+// {
+//     string str = "vikashkumawat";
+//     int n = str.length();
+//     int i = 0;
+//     char key = 'a';
+//     vector<int> ans;
+//     int count = 0;
 
-    findDigit(str, n, i, key, ans);
-    cout << "Printing as: " << endl;
-    for (auto val : ans)
-    {
-        cout << val << " ";
-    }
-    cout << endl;
+//     findDigit(str, n, i, key, ans, count);
+//     cout << "Count is: " << count << endl;
+//     cout << "Printing as: " << endl;
+//     for (auto val : ans)
+//     {
+//         cout << val << " ";
+//     }
+//     cout << endl;
 
-    return 0;
-}
+//     return 0;
+// }
+
+// -------- Printreverse -----------
+
+// void printFun(int n)
+// {
+//     if (n == 0)
+//     {
+//         return;
+//     }
+//     // ek case solve kardo
+//     printFun(n / 10);
+//     int digit = n % 10;
+//     cout << digit;
+//     // baaki recursion shambal lega
+// }
+// int main()
+// {
+//     int n = 902;
+//     printFun(n);
+//     return 0;
+// }
