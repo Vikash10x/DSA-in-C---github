@@ -1,6 +1,6 @@
 #include <iostream>
 #include <climits>
-// #include <vector>
+#include <vector>
 using namespace std;
 
 // bool checkSorted(vector<int> &arr, int n, int i)
@@ -119,27 +119,36 @@ using namespace std;
 
 // --------CheckDigit -----------
 
-bool findDigit(string str, int n, int i, int key)
+void findDigit(string &str, int &n, int i, int key, vector<int> &ans)
 {
     if (i >= n)
     {
-        return false;
+        return;
     }
     if (str[i] == key)
     {
-        return true;
+        // return true;
+        // cout << "found at: " << i << endl;
+        ans.push_back(i);
+        // return i;
     }
-    return findDigit(str, n, i + 1, key);
+    findDigit(str, n, i + 1, key, ans);
 }
 int main()
 {
     string str = "vikashkumawat";
     int n = str.length();
-
     int i = 0;
-    int key = 'k';
-    bool ans = findDigit(str, n, i, key);
-    cout << "Ans is: " << ans << endl;
+    char key = 'a';
+    vector<int> ans;
+
+    findDigit(str, n, i, key, ans);
+    cout << "Printing as: " << endl;
+    for (auto val : ans)
+    {
+        cout << val << " ";
+    }
+    cout << endl;
 
     return 0;
 }
