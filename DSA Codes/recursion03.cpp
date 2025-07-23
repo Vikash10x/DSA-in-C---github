@@ -73,7 +73,7 @@ using namespace std;
 //     return 0;
 // }
 
-// -------------- PrintString -------------
+// ----------------- Print String ---------------
 
 void printString(string str, string output, int i, vector<string> &v)
 {
