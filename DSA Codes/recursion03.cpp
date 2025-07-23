@@ -35,40 +35,77 @@ using namespace std;
 
 // -------- Binary Search -------------
 
-int binarySearch(vector<int> arr, int s, int e, int key)
+// int binarySearch(vector<int> arr, int s, int e, int key)
+// {
+//     // bass case
+//     if (s > e)
+//     {
+//         return -1;
+//     }
+//     int mid = (s + e) / 2;
+//     if (arr[mid] == key)
+//     {
+//         return mid;
+//     }
+//     if (key < arr[mid])
+//     {
+//         int ans = binarySearch(arr, s, mid - 1, key);
+//         return ans;
+//     }
+//     if (key > arr[mid])
+//     {
+//         int ans = binarySearch(arr, mid + 1, e, key);
+//         return ans;
+//     }
+// }
+// int main()
+// {
+
+//     vector<int> arr = {10, 20, 30, 40, 50, 60, 70};
+//     int n = arr.size();
+//     int s = 0;
+//     int e = n - 1;
+//     int target = 70;
+
+//     int ans = binarySearch(arr, s, e, target);
+//     cout << "Found it: " << ans;
+
+//     return 0;
+// }
+
+void printString(string str, string output, int i, vector<string> &v)
 {
-    // bass case
-    if (s > e)
+    // bace case
+    if (i >= str.length())
     {
-        return -1;
+        // cout << output << endl;
+        v.push_back(output);
+        return;
     }
-    int mid = (s + e) / 2;
-    if (arr[mid] == key)
-    {
-        return mid;
-    }
-    if (key < arr[mid])
-    {
-        int ans = binarySearch(arr, s, mid - 1, key);
-        return ans;
-    }
-    if (key > arr[mid])
-    {
-        int ans = binarySearch(arr, mid + 1, e, key);
-        return ans;
-    }
+    // exclude
+    printString(str, output, i + 1, v);
+
+    // include
+    output.push_back(str[i]);
+    printString(str, output, i + 1, v);
 }
+
 int main()
 {
+    string str = "abc";
+    string output = "";
+    int i = 0;
+    vector<string> v;
 
-    vector<int> arr = {10, 20, 30, 40, 50, 60, 70};
-    int n = arr.size();
-    int s = 0;
-    int e = n - 1;
-    int target = 70;
+    printString(str, output, i, v);
 
-    int ans = binarySearch(arr, s, e, target);
-    cout << "Found it: " << ans;
+    cout << "Print all subsquense: " << endl;
+    for (auto val : v)
+    {
+        cout << val << " ";
+    }
+    cout << endl
+         << "size of subsiquence: " << v.size() << endl;
 
     return 0;
 }
