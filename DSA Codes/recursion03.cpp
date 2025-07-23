@@ -73,6 +73,8 @@ using namespace std;
 //     return 0;
 // }
 
+// -------------- PrintString -------------
+
 void printString(string str, string output, int i, vector<string> &v)
 {
     // bace case
