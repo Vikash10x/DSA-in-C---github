@@ -68,27 +68,69 @@ using namespace std;
 
 // --------- Reverse ----------
 
-void reverse(string &s, int start, int end)
+// void reverse(string &s, int start, int end)
+// {
+//     // bace case
+//     if (start >= end)
+//     {
+//         return;
+//     }
+//     // ek case solve kar do
+//     swap(s[start], s[end]);
+
+//     // baaki recursion shambal lega
+//     reverse(s, start + 1, end - 1);
+// }
+
+// int main()
+// {
+//     string s;
+//     cin >> s;
+//     int start = 0;
+//     int end = s.size() - 1;
+//     reverse(s, start, end);
+//     cout << s;
+//     return 0;
+// }
+
+// --------- Print All Subarrays ----------
+
+void subArray(vector<int> &num, int start, int end)
 {
-    // bace case
-    if (start >= end)
+    // base case
+    if (end == num.size())
     {
         return;
     }
-    // ek case solve kar do
-    swap(s[start], s[end]);
 
-    // baaki recursion shambal lega
-    reverse(s, start + 1, end - 1);
+    // 1 case solved
+    for (int i = start; i <= end; i++)
+    {
+        cout << num[i] << " ";
+    }
+
+    cout << endl;
+
+    // Recursive call
+    subArray(num, start, end + 1);
+}
+
+void printArray(vector<int> &num)
+{
+    for (int start = 0; start < num.size(); start++)
+    {
+        int end = start;
+        subArray(num, start, end);
+    }
 }
 
 int main()
 {
-    string s;
-    cin >> s;
-    int start = 0;
-    int end = s.size() - 1;
-    reverse(s, start, end);
-    cout << s;
+    vector<int> num{1, 2, 3, 4, 5};
+
+    // You can call either of these:
+    // subArray(num, 0, 0);
+    printArray(num);
+
     return 0;
 }
