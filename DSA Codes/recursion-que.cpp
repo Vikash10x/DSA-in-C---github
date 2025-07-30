@@ -129,7 +129,6 @@ int main()
     vector<int> num{1, 2, 3, 4, 5};
 
     // You can call either of these:
-    // subArray(num, 0, 0);
     printArray(num);
 
     return 0;
