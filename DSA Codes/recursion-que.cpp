@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string.h>
+#include <limits.h>
 #include <vector>
 using namespace std;
 
@@ -95,41 +96,75 @@ using namespace std;
 
 // --------- Print All Subarrays ----------
 
-void subArray(vector<int> &num, int start, int end)
+// void subArray(vector<int> &num, int start, int end)
+// {
+//     // base case
+//     if (end == num.size())
+//     {
+//         return;
+//     }
+
+//     // 1 case solved
+//     for (int i = start; i <= end; i++)
+//     {
+//         cout << num[i] << " ";
+//     }
+
+//     cout << endl;
+
+//     // Recursive call
+//     subArray(num, start, end + 1);
+// }
+
+// void printArray(vector<int> &num)
+// {
+//     for (int start = 0; start < num.size(); start++)
+//     {
+//         int end = start;
+//         subArray(num, start, end);
+//     }
+// }
+
+// int main()
+// {
+//     vector<int> num{1, 2, 3, 4, 5};
+
+//     // You can call either of these:
+//     // subArray(num, 0, 0);
+//     printArray(num);
+
+//     return 0;
+// }
+
+// --------------- LeetCode 121 que ---------
+
+void maxProfitFind(vector<int> &prices, int i, int &minPrice, int &maxProfit)
 {
-    // base case
-    if (end == num.size())
+    // bace case
+    if (i == prices.size())
     {
         return;
     }
 
-    // 1 case solved
-    for (int i = start; i <= end; i++)
+    // 1 case soln
+    if (prices[i] < minPrice)
     {
-        cout << num[i] << " ";
+        minPrice = prices[i];
     }
-
-    cout << endl;
-
-    // Recursive call
-    subArray(num, start, end + 1);
-}
-
-void printArray(vector<int> &num)
-{
-    for (int start = 0; start < num.size(); start++)
+    int todayProfit = prices[i] - minPrice;
+    if (todayProfit > maxProfit)
     {
-        int end = start;
-        subArray(num, start, end);
+        maxProfit = todayProfit;
     }
+    // RR
+    maxProfitFind(prices, i + 1, minPrice, maxProfit);
 }
-
 int main()
 {
-    vector<int> num{1, 2, 3, 4, 5};
-
-    // You can call either of these:
-    printArray(num);
-
+    vector<int> prices{4, 8, 1, 9, 3};
+    int minPrice = INT_MAX;
+    int maxProfit = INT_MIN;
+    maxProfitFind(prices, 0, minPrice, maxProfit);
+    cout << "Max profit is: " << maxProfit << endl;
     return 0;
 }
