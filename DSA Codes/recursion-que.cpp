@@ -250,7 +250,7 @@ bool isMatchHelper(string &s, int si, string &p, int pi)
 int main()
 {
     string s = "abcdef";
-    string p = "*****";
+    string p = "abc*";
 
     int si = 0;
     int pi = 0;
