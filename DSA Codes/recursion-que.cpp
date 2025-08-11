@@ -171,92 +171,94 @@ using namespace std;
 
 // --------- integer to English Words ---------
 
-vector<pair<int, string>> mp = {{1000000000, "Billion"}, {1000000, "Million"}, {1000, "Thousand"}, {100, "Hundred"}, {90, "Ninety"}, {80, "Eighty"}, {70, "Seventy"}, {60, "Sixty"}, {50, "Fifty"}, {40, "Forty"}, {30, "Thirty"}, {20, "Twenty"}, {19, "Nineteen"}, {18, "Eighteen"}, {17, "Seventeen"}, {16, "Sixteen"}, {15, "Fifteen"}, {14, "Fourteen"}, {13, "Thirteen"}, {12, "Twelve"}, {11, "Eleven"}, {10, "Ten"}, {9, "Nine"}, {8, "Eight"}, {7, "Seven"}, {6, "Six"}, {5, "Five"}, {4, "Four"}, {3, "Three"}, {2, "Two"}, {1, "One"}};
+// vector<pair<int, string>> mp = {{1000000000, "Billion"}, {1000000, "Million"}, {1000, "Thousand"}, {100, "Hundred"}, {90, "Ninety"}, {80, "Eighty"}, {70, "Seventy"}, {60, "Sixty"}, {50, "Fifty"}, {40, "Forty"}, {30, "Thirty"}, {20, "Twenty"}, {19, "Nineteen"}, {18, "Eighteen"}, {17, "Seventeen"}, {16, "Sixteen"}, {15, "Fifteen"}, {14, "Fourteen"}, {13, "Thirteen"}, {12, "Twelve"}, {11, "Eleven"}, {10, "Ten"}, {9, "Nine"}, {8, "Eight"}, {7, "Seven"}, {6, "Six"}, {5, "Five"}, {4, "Four"}, {3, "Three"}, {2, "Two"}, {1, "One"}};
 
-string numberToWords(int num)
-{
-    if (num == 0)
-    {
-        return "Zero";
-    }
-
-    for (auto it : mp)
-    {
-        if (num >= it.first)
-        {
-            string a = "";
-            if (num >= 100)
-            {
-                a = numberToWords(num / it.first) + " ";
-            }
-
-            string b = it.second;
-
-            string c = "";
-            if (num % it.first != 0)
-            {
-                c = " " + numberToWords(num % it.first);
-            }
-            return a + b + c;
-        }
-    }
-    return "";
-}
-int main()
-{
-    int num = 5678;
-    // cin >> num;
-    string ans = numberToWords(num);
-    cout << endl
-         << "Ans is: " << ans << endl;
-
-    return 0;
-}
-
-// ------------- Wildcard Matching -------------
-
-// bool isMatchHelper(string &s, int si, string &p, int pi)
+// string numberToWords(int num)
 // {
-//     if (si == s.size() && pi == p.size())
+//     if (num == 0)
 //     {
-//         return true;
+//         return "Zero";
 //     }
 
-//     if (si == s.size() && pi < p.size())
+//     for (auto it : mp)
 //     {
-//         while (pi < p.size())
+//         if (num >= it.first)
 //         {
-//             if (p[pi] != '*')
-//                 return false;
-//             pi++;
+//             string a = "";
+//             if (num >= 100)
+//             {
+//                 a = numberToWords(num / it.first) + " ";
+//             }
+
+//             string b = it.second;
+
+//             string c = "";
+//             if (num % it.first != 0)
+//             {
+//                 c = " " + numberToWords(num % it.first);
+//             }
+//             return a + b + c;
 //         }
-//         return true;
 //     }
-
-//     if (s[si] == p[pi] || '?' == p[pi])
-//     {
-//         return isMatchHelper(s, si + 1, p, pi + 1);
-//     }
-
-//     if (p[pi] == '*')
-//     {
-//         bool caseA = isMatchHelper(s, si, p, pi + 1);
-
-//         bool caseB = isMatchHelper(s, si + 1, p, pi);
-//         return caseA || caseB;
-//     }
-
-//     return false;
+//     return "";
 // }
 // int main()
 // {
-//     string s = "abcdef";
-//     string p = "abc*";
+//     int num = 5678;
+//     // cin >> num;
+//     string ans = numberToWords(num);
+//     cout << endl
+//          << "Ans is: " << ans << endl;
 
-//     int si = 0;
-//     int pi = 0;
-
-//     bool ans = isMatchHelper(s, si, p, pi);
-//     cout << "Ans is: " << ans << endl;
 //     return 0;
 // }
+
+// ------------- Wildcard Matching -------------
+
+bool isMatchHelper(string &s, int si, string &p, int pi)
+{
+    if (si == s.size() && pi == p.size())
+    {
+        return true;
+    }
+
+    if (si == s.size() && pi < p.size())
+    {
+        while (pi < p.size())
+        {
+            if (p[pi] != '*')
+                return false;
+            pi++;
+        }
+        return true;
+    }
+
+    if (s[si] == p[pi] || '?' == p[pi])
+    {
+        return isMatchHelper(s, si + 1, p, pi + 1);
+    }
+
+    if (p[pi] == '*')
+    {
+        bool caseA = isMatchHelper(s, si, p, pi + 1);
+
+        bool caseB = isMatchHelper(s, si + 1, p, pi);
+        return caseA || caseB;
+    }
+
+    return false;
+}
+int main()
+{
+    // string s = "abcdef";
+    // string p = "abc*";
+    string s, p;
+    cin >> s >> p;
+
+    int si = 0;
+    int pi = 0;
+
+    bool ans = isMatchHelper(s, si, p, pi);
+    cout << "Ans is: " << ans << endl;
+    return 0;
+}
