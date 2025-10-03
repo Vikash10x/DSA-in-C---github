@@ -205,7 +205,7 @@ string numberToWords(int num)
 int main()
 {
     int num = 5678;
-    // cin >> num;
+    cin >> num;
     string ans = numberToWords(num);
     cout << endl
          << "Ans is: " << ans << endl;
