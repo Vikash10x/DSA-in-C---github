@@ -96,45 +96,45 @@ using namespace std;
 
 // --------- Print All Subarrays ----------
 
-// void subArray(vector<int> &num, int start, int end)
-// {
-//     // base case
-//     if (end == num.size())
-//     {
-//         return;
-//     }
+void subArray(vector<int> &num, int start, int end)
+{
+    // base case
+    if (end == num.size())
+    {
+        return;
+    }
 
-//     // 1 case solved
-//     for (int i = start; i <= end; i++)
-//     {
-//         cout << num[i] << " ";
-//     }
+    // 1 case solved
+    for (int i = start; i <= end; i++)
+    {
+        cout << num[i] << " ";
+    }
 
-//     cout << endl;
+    cout << endl;
 
-//     // Recursive call
-//     subArray(num, start, end + 1);
-// }
+    // Recursive call
+    subArray(num, start, end + 1);
+}
 
-// void printArray(vector<int> &num)
-// {
-//     for (int start = 0; start < num.size(); start++)
-//     {
-//         int end = start;
-//         subArray(num, start, end);
-//     }
-// }
+void printArray(vector<int> &num)
+{
+    for (int start = 0; start < num.size(); start++)
+    {
+        int end = start;
+        subArray(num, start, end);
+    }
+}
 
-// int main()
-// {
-//     vector<int> num{1, 2, 3, 4, 5};
+int main()
+{
+    vector<int> num{1, 2, 3, 4, 5};
 
-//     // You can call either of these:
-//     // subArray(num, 0, 0);
-//     printArray(num);
+    // You can call either of these:
+    // subArray(num, 0, 0);
+    printArray(num);
 
-//     return 0;
-// }
+    return 0;
+}
 
 // --------------- LeetCode 121 que ---------
 
@@ -171,47 +171,47 @@ using namespace std;
 
 // --------- integer to English Words ---------
 
-vector<pair<int, string>> mp = {{1000000000, "Billion"}, {1000000, "Million"}, {1000, "Thousand"}, {100, "Hundred"}, {90, "Ninety"}, {80, "Eighty"}, {70, "Seventy"}, {60, "Sixty"}, {50, "Fifty"}, {40, "Forty"}, {30, "Thirty"}, {20, "Twenty"}, {19, "Nineteen"}, {18, "Eighteen"}, {17, "Seventeen"}, {16, "Sixteen"}, {15, "Fifteen"}, {14, "Fourteen"}, {13, "Thirteen"}, {12, "Twelve"}, {11, "Eleven"}, {10, "Ten"}, {9, "Nine"}, {8, "Eight"}, {7, "Seven"}, {6, "Six"}, {5, "Five"}, {4, "Four"}, {3, "Three"}, {2, "Two"}, {1, "One"}};
+// vector<pair<int, string>> mp = {{1000000000, "Billion"}, {1000000, "Million"}, {1000, "Thousand"}, {100, "Hundred"}, {90, "Ninety"}, {80, "Eighty"}, {70, "Seventy"}, {60, "Sixty"}, {50, "Fifty"}, {40, "Forty"}, {30, "Thirty"}, {20, "Twenty"}, {19, "Nineteen"}, {18, "Eighteen"}, {17, "Seventeen"}, {16, "Sixteen"}, {15, "Fifteen"}, {14, "Fourteen"}, {13, "Thirteen"}, {12, "Twelve"}, {11, "Eleven"}, {10, "Ten"}, {9, "Nine"}, {8, "Eight"}, {7, "Seven"}, {6, "Six"}, {5, "Five"}, {4, "Four"}, {3, "Three"}, {2, "Two"}, {1, "One"}};
 
-string numberToWords(int num)
-{
-    if (num == 0)
-    {
-        return "Zero";
-    }
+// string numberToWords(int num)
+// {
+//     if (num == 0)
+//     {
+//         return "Zero";
+//     }
 
-    for (auto it : mp)
-    {
-        if (num >= it.first)
-        {
-            string a = "";
-            if (num >= 100)
-            {
-                a = numberToWords(num / it.first) + " ";
-            }
+//     for (auto it : mp)
+//     {
+//         if (num >= it.first)
+//         {
+//             string a = "";
+//             if (num >= 100)
+//             {
+//                 a = numberToWords(num / it.first) + " ";
+//             }
 
-            string b = it.second;
+//             string b = it.second;
 
-            string c = "";
-            if (num % it.first != 0)
-            {
-                c = " " + numberToWords(num % it.first);
-            }
-            return a + b + c;
-        }
-    }
-    return "";
-}
-int main()
-{
-    int num = 5678;
-    cin >> num;
-    string ans = numberToWords(num);
-    cout << endl
-         << "Ans is: " << ans << endl;
+//             string c = "";
+//             if (num % it.first != 0)
+//             {
+//                 c = " " + numberToWords(num % it.first);
+//             }
+//             return a + b + c;
+//         }
+//     }
+//     return "";
+// }
+// int main()
+// {
+//     int num = 5678;
+//     cin >> num;
+//     string ans = numberToWords(num);
+//     cout << endl
+//          << "Ans is: " << ans << endl;
 
-    return 0;
-}
+//     return 0;
+// }
 
 // ------------- Wildcard Matching -------------
 
