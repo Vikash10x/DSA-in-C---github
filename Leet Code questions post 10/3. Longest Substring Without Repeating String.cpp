@@ -1,0 +1,25 @@
+class Solution
+{
+public:
+    int lengthOfLongestSubstring(string s)
+    {
+        int n = s.size();
+        int maxLen = 0;
+
+        for (int i = 0; i < n; i++)
+        {
+            bool visited[256] = {false};
+            int len = 0;
+
+            for (int j = i; j < n; j++)
+            {
+                if (visited[s[j]])
+                    break;
+                visited[s[j]] = true;
+                len++;
+                maxLen = max(maxLen, len);
+            }
+        }
+        return maxLen;
+    }
+};
