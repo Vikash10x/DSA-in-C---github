@@ -101,8 +101,9 @@ string backTracking(string str, int i)
 }
 int main()
 {
-    string str = "abc";
+    string str = "pqrs";
     int i = 0;
+    cout << endl;
     backTracking(str, i);
     cout << endl;
     return 0;
