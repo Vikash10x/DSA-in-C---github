@@ -99,9 +99,10 @@ string backTracking(string str, int i)
         swap(str[i], str[j]);
     }
 }
+
 int main()
 {
-    string str = "abcd";
+    string str = "pqrs";
     int i = 0;
     cout << endl;
     backTracking(str, i);
