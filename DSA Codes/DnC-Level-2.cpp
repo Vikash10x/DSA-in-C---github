@@ -83,20 +83,21 @@ using namespace std;
 
 // ---------- BAck Tracking -----------
 
-string backTracking(string str, int i)
+void backTracking(string str, int i)
 {
     // Base case
     if (i >= str.length())
     {
         cout << str << " ";
+        return;
     }
 
+    // Recursive case
     for (int j = i; j < str.length(); j++)
     {
         swap(str[i], str[j]);
-        // recursive call
         backTracking(str, i + 1);
-        swap(str[i], str[j]);
+        swap(str[i], str[j]); // backtrack
     }
 }
 
